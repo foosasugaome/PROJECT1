@@ -8,3 +8,18 @@
 * You will have to move the arm before timer ends.
 
 ![wireframe](https://i.imgur.com/nf3txe0.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![credit to images](https://pixabay.com/users/elsiebeedesigns-5872683/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4637799)
