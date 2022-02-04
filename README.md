@@ -1,2 +1,2 @@
-# PROJECT1
-Create a game
+# Grab a toy : An arcade game
+
