@@ -9,17 +9,13 @@
 
 ![wireframe](https://i.imgur.com/nf3txe0.jpg)
 
+## MVP
 
-
-
-
-
-
-
-
-
-
-
-
-
-![credit to images](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4637799)
+* Create a canvas as play area.
+* Randomly place target on the canvas.
+* Create two buttons for controls of the claw.
+* Create a timer for each turn.
+* Turn ends when turn counter reaches zero.
+* Every time player successfuly grabs a toy, he can earn more points.
+* Toys will have random exchange values. 
+* Player ends when there are no more turns.
