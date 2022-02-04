@@ -2,4 +2,4 @@
 
 ## Objective
 
-Move the arm to the right position to win a toy.
+Move the arm horizontally and verticall then grab a toy.
