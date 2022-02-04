@@ -1,4 +1,4 @@
-# Grab a toy : An arcade game
+# Claw Crane : An arcade game
 
 ## Objective
 
