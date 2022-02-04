@@ -1,5 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 :root {
     --primary-color: khaki;
     --secondary-color: coral;
+    --primary-font: 'Press Start 2P', cursive;
+    
+}
+
+body {
+font-family: var(--primary-font);
+background-color: var(--primary-color);
+}
+
+.center {
+    text-align: center;
+}
+
+.header {
+    height: 300px;
+    background-image: url('images/speech-bubble-gba84e7a17_1920.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 100% 100%;
+    border: .1rem solid black;
     
 }
