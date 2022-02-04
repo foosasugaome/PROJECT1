@@ -2,6 +2,9 @@
 
 ## Objective
 
-Move the arm horizontally and verticall then grab a toy.
+* Move the arm horizontally and vertically then grab a toy.
+* Arm will move when button is pressed and will stop on release.
+* You can have n number of tries.
+* You will have to move the arm before timer ends.
 
-[](https://imgur.com/nf3txe0)
+![wireframe](https://i.imgur.com/nf3txe0.jpg)
