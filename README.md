@@ -49,10 +49,10 @@ The location of the target element(toy) will be coming from a randomizer functio
 * Claw will stop moving along the y axis when down arrow button is released 
 * Toy positions are placed at random location in the play area.
 
-### To DO
+### To Do
 
-* HTML layout about
-* Create class to hold number of tokens
+* HTML layout and design.
+* Create class to hold number of tokens.
 * Function to start game. This should also work after every turn.
 * Function to reset game.
 * Function to subtract tokens after every turn.
