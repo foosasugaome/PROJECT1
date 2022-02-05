@@ -39,4 +39,22 @@ The location of the target element(toy) will be coming from a randomizer functio
 * Count number of turns/tokens. Add or subtract based on result of last turn.
 * Toys will have random exchange values to be traded for turns/tokens. 
 
+## Development Progress
+
+### Completed
+
+* Function to move claw along x and y axis complete.
+* Function includes forcing user to move along the x axis first before the y axis.
+* Claw will stop moving along the x axis when right arrow button is released 
+* Claw will stop moving along the y axis when down arrow button is released 
+* Toy positions are placed at random location in the play area.
+
+### To DO
+
+* HTML layout about
+* Create class to hold number of tokens
+* Function to start game. This should also work after every turn.
+* Function to reset game.
+* Function to subtract tokens after every turn.
+* Function to add tokens if player successfuly grabs a toy.
 
