@@ -49,6 +49,8 @@ The location of the target element(toy) will be coming from a randomizer functio
 * Claw will stop moving along the y axis when down arrow button is released 
 * Toy positions are placed at random location in the play area.
 
+![Claw Crane](ver1.jpg)
+
 ### To Do
 
 * HTML layout and design.
