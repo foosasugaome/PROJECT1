@@ -27,7 +27,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 
 ## Game layout
 
-![Claw Crane](images/hamster-hunter-beta.jpg)
+![Claw Crane](https://i.imgur.com/nf3txe0.jpg)
 
 ## MVP
 
@@ -50,7 +50,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Candy positions are placed at random location in the play area.
 * Replaced prizes to candy and replaced claw with hamster as. Used drawImage on canvas instead of fillRect
 
-![Claw Crane](ver1.jpg)
+![Claw Crane](images/hamster-hunter-beta.jpg)
 
 ### To Do
 
