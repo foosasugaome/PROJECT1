@@ -1,4 +1,4 @@
-# Hamster hunter : An arcade game
+# Hamster Candy Hunter : An arcade game
 
 ## About the game
 
@@ -39,9 +39,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Count number of turns/tokens. Add or subtract based on result of last turn.
 * Candy will have random exchange values to be traded for turns/tokens. 
 * Function to subtract tokens after every turn.
-* Function to add tokens if player successfuly grabs a toy.
-
-## Development Progress
+* Function to add tokens if player successfuly grabs a candy.
 
 ### Completed
 
@@ -51,16 +49,27 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Hamster will stop moving along the y axis when down arrow button is released 
 * Candy positions are placed at random location in the play area.
 * Replaced prizes to candy and replaced claw with hamster. Used drawImage on canvas instead of fillRect
-* Function to start game. This should also work after every turn.
+* Function to start and retry after every turn.
+* HTML layout and design.
+* Tokens are computer after every turn.
 
 ![Claw Crane](images/hamster-hunter-beta.jpg)
 
-### To Do
+## To Do
 
-* HTML layout and design.
-* Create class to hold number of tokens.
-* Game can reset. But loop is still broken.
+* Test for bugs.
 
+## Stretch
+
+* Add more animations.
+
+## Changes
+
+* Changed name of the game.
+* Used keyboard keys to play the game. 
+* Candy grabbed will only have an exchange value of 1.
+* Hamster movement randomized to add difficulty to game.
+* Collision computed at smaller target points for difficulty.
 
 ### Credit goes here
 

@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Claw Crane</title>
+    <title>Hamster Candy Hunt</title>
   </head>
   <body>
-    
     <div class="center">
-      <h1>Hamster Hunter</h1>
+      <h1>Hamster Candy Hunter</h1>
     </div>
-    
+
     <section class="center">
       <div class="container center">
         <canvas class="game-window center" id="screen">
@@ -22,17 +21,58 @@
     </section>
     <section class="center">
       <div class="console-container">
-        <div class="info-display">Right arrow key to go right</div>
-        <div class="info-display">Down Arrow key to go down</div>
+        <div class="message-display" id="game-message"></div>
       </div>
     </section>
     <section class="center">
       <div class="console-container">
-        <div class="info-display">Timer</div>
-        <div class="info-display" id="token"></div>       
-        
+        <div class="info-display">
+          <small class="button-style">&#8594;</small> : Go right
+        </div>
+        <div class="info-display">
+          <small class="button-style">&#8595;</small> : Go down
+        </div>
+        <div class="info-display">
+          <small class="button-style">ENTER</small> : Restart
+        </div>
+        <div class="info-display" id="token"></div>
       </div>
     </section>
+    <section class="center">
+      <div class="console-container">
+        <h4>Instructions :</h4>
+        <ol>
+          <li>You start with 3 tokens.</li>
+          <li>You only have to 2 moves.</li>
+          <li>
+            Press the Right arrow key to go right then Down arrow key to go
+            down.
+          </li>
+          <li>
+            You have to hold the key and release where you want the hamster to
+            stop.
+          </li>
+          <li>
+            Hamster must land on the candy to win a turn. You can win as many
+            tokens.
+          </li>
+          <li>
+            A token/turn is deducted if the hamster does not land on a candy.
+          </li>
+          <li>Game ends when tokens reach 0.</li>
+        </ol>
+      </div>
+    </section>
+    <section class="center">
+      <div class="console-container">
+        <h4>Credits :</h4>
+        <a href="https://www.flaticon.com/free-stickers/hamster" target="_blank">Hamster stickers created by Stickers - Flaticon</a><br />
+          <a href="https://www.flaticon.com/free-icons/chocolate" target="_blank">Chocolate
+            stickers created by Gohsantosadrive - Flaticon</a>
+          
+      </div>
+    </section>
+
     <script src="js/script.js"></script>
   </body>
 </html>
