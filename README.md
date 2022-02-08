@@ -48,7 +48,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Hamster will stop moving along the x axis when right arrow button is released 
 * Hamster will stop moving along the y axis when down arrow button is released 
 * Candy positions are placed at random location in the play area.
-* Replaced prizes to candy and replaced claw with hamster as. Used drawImage on canvas instead of fillRect
+* Replaced prizes to candy and replaced claw with hamster. Used drawImage on canvas instead of fillRect
 
 ![Claw Crane](images/hamster-hunter-beta.jpg)
 
