@@ -51,6 +51,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Hamster will stop moving along the y axis when down arrow button is released 
 * Candy positions are placed at random location in the play area.
 * Replaced prizes to candy and replaced claw with hamster. Used drawImage on canvas instead of fillRect
+* Function to start game. This should also work after every turn.
 
 ![Claw Crane](images/hamster-hunter-beta.jpg)
 
@@ -58,7 +59,6 @@ The location of the target element(candy) will be coming from a randomizer funct
 
 * HTML layout and design.
 * Create class to hold number of tokens.
-* Function to start game. This should also work after every turn.
 * Game can reset. But loop is still broken.
 
 
