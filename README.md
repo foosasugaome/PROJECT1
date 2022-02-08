@@ -53,12 +53,14 @@ The location of the target element(candy) will be coming from a randomizer funct
 * HTML layout and design.
 * Tokens are computer after every turn.
 * Sound effects added.
+* Score added.
 
 ![Claw Crane](images/hamster-hunter-beta.jpg)
 
-## To Do
+## Know bugs
 
-* Test for bugs.
+* Hamster can't move along the x axis if down key button was pressed first.
+* Pressing the Enter key during mid-play does not deduct points.
 
 ## Stretch
 
@@ -72,6 +74,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Candy grabbed will only have an exchange value of 1.
 * Hamster movement randomized to add difficulty to game.
 * Collision computed at smaller target points for difficulty.
+* Added score for each candy grabbed.
 
 ### Credit goes here
 

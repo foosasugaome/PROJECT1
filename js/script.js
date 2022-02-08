@@ -6,8 +6,10 @@ const gameArea = document.querySelector('#screen')
 
 // const timerDisplay = document.querySelector('#timer')
 const tokenDisplay = document.querySelector('#token')
+const pointsDisplay = document.querySelector('#points')
 const messageDisplay = document.querySelector('#game-message')
-messageDisplay.innerText = 'Hello! Please read instructions below before you start.'
+messageDisplay.innerText = 'Help hamster get candies.'
+
 
 // y limit 360 - height of element
 //render hamster -- this will always be the position of the hamster
@@ -57,6 +59,11 @@ class turnToken {
 //initial value of tokens
 let token = 3
 let turn = new turnToken(token)
+
+// initial points,display
+let points = 0
+pointsDisplay.innerText = `Candies collected : ${points}`
+
 
 // function to compute tokens
 function procTokens (tok, i) {
@@ -140,6 +147,8 @@ function detectHit () {
       hamster.y + hamster.height - 30 >= candyTwo.y - 20 &&
       hamster.y - 20 <= candyTwo.y + candyTwo.height - 30)
   ) {
+    points += 1
+    pointsDisplay.innerText = `Candies collected : ${points}`
     turn.token = procTokens(turn.token, 1)
     console.log(hamster.width, candyOne.x)
     messageDisplay.innerText = 'Good job! Hamster caught a candy! You win 1 token.'
@@ -230,6 +239,7 @@ let hitSound = new soundByte("media/detecthit.wav")
 let gameOver = new soundByte("media/gameover.wav")
 let missedSound = new soundByte("media/nohit.wav")
 
+let endGame = false
 drawMsg("Press Enter key to start game.",100,180)
 
 document.addEventListener('keydown', e => {
@@ -242,10 +252,14 @@ document.addEventListener('keydown', e => {
       setTimeout(startGame(), 3000)
     } else {
       ctx.clearRect(0, 0, gameArea.width, gameArea.height)
-      drawMsg("Game over!",180,180)
+      drawMsg("Game over! Your score : " + points, 105,180)      
       gameOver.play()
-      messageDisplay.innerHTML =
-        'Click <a href=index.html>here</a> to try again.'
+      messageDisplay.innerHTML = `Press Enter key to start again.`      
+      if(endGame && turn.token == 0) {
+        location.reload()
+      }    
+      endGame= true
     }
+    
   }
 })
