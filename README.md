@@ -55,7 +55,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Sound effects added.
 * Score added.
 
-![Claw Crane](images/hamster-hunter-beta.jpg)
+![Claw Crane](images/hamster-hunter.jpg)
 
 ## Know bugs
 
