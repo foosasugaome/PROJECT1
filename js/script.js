@@ -96,7 +96,7 @@ let yMove = false
 tokenDisplay.innerText = `Tokens :${turn.token}`
 
 function movementHandler () {
-  const speed = 10
+  const speed = 20
   if (
     pressedKeys.ArrowRight &&
     hamster.x <= 450 &&
@@ -120,16 +120,17 @@ function movementHandler () {
 // collision
 function detectHit () {
   if (
-    (hamster.x + hamster.width - 10 >= candyOne.x - 10 &&
-      hamster.x - 10 <= candyOne.x + candyOne.width - 10 &&
-      hamster.y + hamster.height - 10 >= candyOne.y - 10 &&
-      hamster.y - 10 <= candyOne.y - 10 + candyOne.height - 10) ||
-    (hamster.x + hamster.width - 10 >= candyTwo.x - 10 &&
-      hamster.x - 10 <= candyTwo.x + candyTwo.width - 10 &&
-      hamster.y + hamster.height - 10 >= candyTwo.y - 10 &&
-      hamster.y - 10 <= candyTwo.y + candyTwo.height - 10)
+    (hamster.x + hamster.width - 20 >= candyOne.x - 20 &&
+      hamster.x - 20 <= candyOne.x + candyOne.width - 20 &&
+      hamster.y + hamster.height - 20 >= candyOne.y - 20 &&
+      hamster.y - 20 <= candyOne.y - 20 + candyOne.height - 20) ||
+    (hamster.x + hamster.width - 20 >= candyTwo.x - 20 &&
+      hamster.x - 20 <= candyTwo.x + candyTwo.width - 20 &&
+      hamster.y + hamster.height - 20 >= candyTwo.y - 20 &&
+      hamster.y - 20 <= candyTwo.y + candyTwo.height - 20)
   ) {
-    turn.token = procTokens(turn.token, hamster.token)
+    turn.token = procTokens(turn.token, 1)
+    console.log(hamster.x + hamster.width, candyOne.x)
   }
 }
 
@@ -147,14 +148,13 @@ function stopInterval () {
 
 function looper () {
   ctx.clearRect(0, 0, gameArea.width, gameArea.height)
-  console.log(`you are here ${xMove},${yMove}`)
+  
   if (xMove && yMove) {
     if (turn.token === 0) {
-      console.log('game over')
       stopInterval()
     } else {
-      console.log('g2g')
-      console.log(xMove, yMove)
+      // console.log('g2g')
+      // console.log(xMove, yMove)
       turn.token = procTokens(turn.token, -1)
       detectHit()
       stopInterval()
@@ -165,12 +165,33 @@ function looper () {
   }
 
   // render elements here
+console.log(hamster.token)
   candyOne.render()
   candyTwo.render()
   hamster.render()
 }
 
-const onClick = e => {
+function drawScore(){
+  ctx.beginPath();
+  ctx.rect(14, 320, 121,120);
+  ctx.fillStyle ='grey';
+  ctx.fill();
+  ctx.closePath();
+  ctx.font = 'bold 23px Arial';
+  ctx.fillStyle = "white";
+  ctx.fillText("Game Over. Press enter to restart.",29,360);
+  ctx.font = 'bold 23px Arial';
+  ctx.fillText("Rs", 29, 415);
+}
+
+
+document.addEventListener('keydown', (e) => {
+  if(e.key=="Enter") {
+    xMove = false
+  yMove = false
+  pressedKeys.ArrowRight = null
+  pressedKeys.ArrowDown = null
+  console.log(pressedKeys)
   console.log(turn.token)
   hamster.x = 0
   hamster.y = 0
@@ -181,7 +202,13 @@ const onClick = e => {
   pressedKeys.ArrowDown = null
   pressedKeys.ArrowRight = null
   stopInterval()
-  startGame()
-}
+  if(turn.token != 0) {
+    setTimeout(startGame() ,3000)
+    // location.reload()  
+  } else {
+    location.reload()
+  }
 
-window.addEventListener('click', onClick)
+  
+  }
+})
