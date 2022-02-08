@@ -1,12 +1,21 @@
 console.log('hello from your console.')
 
+// define game area
+const gameArea = document.querySelector('#screen')
+
+
 // const timerDisplay = document.querySelector('#timer')
 const tokenDisplay = document.querySelector('#token')
 const messageDisplay = document.querySelector('#game-message')
 messageDisplay.innerText = 'Hello! Please read instructions below before you start.'
 
-// define game area
-const gameArea = document.querySelector('#screen')
+// y limit 360 - height of element
+//render hamster -- this will always be the position of the hamster
+let imgHamster = new Image()
+imgHamster.src = 'images/hamster.png'
+let imgCandy = new Image()
+imgCandy.src = 'images/candy-sticker.png'
+
 
 // canvas rendering
 const ctx = gameArea.getContext('2d')
@@ -63,12 +72,7 @@ function randomise (limit) {
   return number
 }
 
-// y limit 360 - height of element
-//render hamster -- this will always be the position of the hamster
-let imgHamster = new Image()
-imgHamster.src = 'images/hamster.png'
-let imgCandy = new Image()
-imgCandy.src = 'images/candy-sticker.png'
+
 
 const hamster = new gameElement(0, 0, 40, 40, '#FFFFFF', imgHamster)
 hamster.render()
@@ -98,9 +102,12 @@ let xMove = false
 let yMove = false
 tokenDisplay.innerText = `Tokens :${turn.token}`
 
+
+
 function movementHandler () {
   // random speed for difficulty
-  const speed = Math.floor(Math.random() * 50) + 10
+  const speed = Math.floor(Math.random() * 50) + 10  
+  moveSound.play()
   if (
     pressedKeys.ArrowRight &&
     hamster.x <= 450 &&
@@ -136,7 +143,9 @@ function detectHit () {
     turn.token = procTokens(turn.token, 1)
     console.log(hamster.width, candyOne.x)
     messageDisplay.innerText = 'Good job! Hamster caught a candy! You win 1 token.'
+    hitSound.play()
   } else {
+    missedSound.play()
     messageDisplay.innerText = 'Sorry! Try again.'
   }
 }
@@ -200,10 +209,32 @@ function reinitialise () {
   pressedKeys.ArrowRight = null
   speed = Math.floor(Math.random() * 50) + 10
 }
+
+function soundByte(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
+let moveSound = new soundByte("media/move.wav")
+let hitSound = new soundByte("media/detecthit.wav")
+let gameOver = new soundByte("media/gameover.wav")
+let missedSound = new soundByte("media/nohit.wav")
+
 drawMsg("Press Enter key to start game.",100,180)
+
 document.addEventListener('keydown', e => {
+  
   if (e.key == 'Enter') {
-    
     messageDisplay.innerText = `You have ${turn.token} left.`
     reinitialise()
     stopInterval()
@@ -212,6 +243,7 @@ document.addEventListener('keydown', e => {
     } else {
       ctx.clearRect(0, 0, gameArea.width, gameArea.height)
       drawMsg("Game over!",180,180)
+      gameOver.play()
       messageDisplay.innerHTML =
         'Click <a href=index.html>here</a> to try again.'
     }

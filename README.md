@@ -52,6 +52,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Function to start and retry after every turn.
 * HTML layout and design.
 * Tokens are computer after every turn.
+* Sound effects added.
 
 ![Claw Crane](images/hamster-hunter-beta.jpg)
 
@@ -62,6 +63,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 ## Stretch
 
 * Add more animations.
+* Add sound effects.
 
 ## Changes
 
