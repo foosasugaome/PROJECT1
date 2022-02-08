@@ -38,6 +38,8 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Create event listeners for keypress.
 * Count number of turns/tokens. Add or subtract based on result of last turn.
 * Candy will have random exchange values to be traded for turns/tokens. 
+* Function to subtract tokens after every turn.
+* Function to add tokens if player successfuly grabs a toy.
 
 ## Development Progress
 
@@ -57,9 +59,8 @@ The location of the target element(candy) will be coming from a randomizer funct
 * HTML layout and design.
 * Create class to hold number of tokens.
 * Function to start game. This should also work after every turn.
-* Function to reset game.
-* Function to subtract tokens after every turn.
-* Function to add tokens if player successfuly grabs a toy.
+* Game can reset. But loop is still broken.
+
 
 ### Credit goes here
 
