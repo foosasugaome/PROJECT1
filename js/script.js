@@ -3,13 +3,11 @@ console.log('hello from your console.')
 // define game area
 const gameArea = document.querySelector('#screen')
 
-
 // const timerDisplay = document.querySelector('#timer')
 const tokenDisplay = document.querySelector('#token')
 const pointsDisplay = document.querySelector('#points')
 const messageDisplay = document.querySelector('#game-message')
 messageDisplay.innerText = 'Help hamster get candies.'
-
 
 // y limit 360 - height of element
 //render hamster -- this will always be the position of the hamster
@@ -17,7 +15,6 @@ let imgHamster = new Image()
 imgHamster.src = 'images/hamster.png'
 let imgCandy = new Image()
 imgCandy.src = 'images/candy-sticker.png'
-
 
 // canvas rendering
 const ctx = gameArea.getContext('2d')
@@ -64,7 +61,6 @@ let turn = new turnToken(token)
 let points = 0
 pointsDisplay.innerText = `Candies collected : ${points}`
 
-
 // function to compute tokens
 function procTokens (tok, i) {
   tok += i
@@ -78,8 +74,6 @@ function randomise (limit) {
   let number = Math.floor(Math.random() * (limit - min)) + min
   return number
 }
-
-
 
 const hamster = new gameElement(0, 0, 40, 40, '#FFFFFF', imgHamster)
 hamster.render()
@@ -109,26 +103,23 @@ let xMove = false
 let yMove = false
 tokenDisplay.innerText = `Tokens :${turn.token}`
 
-
-
 function movementHandler () {
   // random speed for difficulty
-  const speed = Math.floor(Math.random() * 50) + 10  
+  let speed = Math.floor(Math.random() * 50) + 5
   moveSound.play()
-  if (
-    pressedKeys.ArrowRight &&
-    hamster.x <= 450 &&
-    yMove == false &&
-    xMove == false
-  ) {    
+
+  if (pressedKeys.ArrowRight && hamster.x <= 450 && xMove == false) {
     hamster.x += speed
   }
+
+  if (pressedKeys.ArrowDown && yMove == false && hamster.y <= 300) {
+    hamster.y += speed
+  }
+
   if (pressedKeys.ArrowRight == false) {
     // toggle condition for the hamster to stop traversing the x axis
     xMove = true
   }
-  if (pressedKeys.ArrowDown && xMove && yMove == false && hamster.y <= 300)
-    hamster.y += speed
   if (pressedKeys.ArrowDown == false) {
     // toggle condition for the hamster to stop traversing the y axis
     yMove = true
@@ -150,19 +141,18 @@ function detectHit () {
     points += 1
     pointsDisplay.innerText = `Candies collected : ${points}`
     turn.token = procTokens(turn.token, 1)
-    console.log(hamster.width, candyOne.x)
-    messageDisplay.innerText = 'Good job! Hamster caught a candy! You win 1 token.'
+    messageDisplay.innerText =
+      'Good job! Hamster caught a candy! You win 1 token.'
     hitSound.play()
   } else {
     missedSound.play()
-    // turn.token = procTokens(turn.token, -1)
     messageDisplay.innerText = 'Sorry! Try again.'
   }
 }
 
 let gameLoopInterval
 
-function startGame () {  
+function startGame () {
   gameLoopInterval = setInterval(looper, 60)
 }
 
@@ -177,10 +167,10 @@ function looper () {
   if (xMove && yMove) {
     if (turn.token === 0) {
       stopInterval()
-    } else {            
+    } else {
       detectHit()
       stopInterval()
-    }    
+    }
   } else {
     movementHandler()
   }
@@ -191,7 +181,7 @@ function looper () {
   hamster.render()
 }
 
-function drawMsg (msg,x,y) {
+function drawMsg (msg, x, y) {
   ctx.beginPath()
   ctx.rect(0, 0, 500, 360)
   ctx.fillStyle = 'rgb(240, 216, 188)'
@@ -199,9 +189,8 @@ function drawMsg (msg,x,y) {
   ctx.closePath()
   ctx.font = 'bold 23px "IBM Plex Sans Thai Looped"'
   ctx.fillStyle = 'rgb(0,0,0)'
-  ctx.fillText(msg, x, y)  
+  ctx.fillText(msg, x, y)
 }
-
 
 function reinitialise () {
   xMove = false
@@ -217,53 +206,51 @@ function reinitialise () {
   speed = Math.floor(Math.random() * 50) + 10
 }
 
-function soundByte(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
+function soundByte (src) {
+  this.sound = document.createElement('audio')
+  this.sound.src = src
+  this.sound.setAttribute('preload', 'auto')
+  this.sound.setAttribute('controls', 'none')
+  this.sound.style.display = 'none'
+  document.body.appendChild(this.sound)
+  this.play = function () {
+    this.sound.play()
   }
-  this.stop = function(){
-    this.sound.pause();
+  this.stop = function () {
+    this.sound.pause()
   }
 }
 
-let moveSound = new soundByte("media/move.wav")
-let hitSound = new soundByte("media/detecthit.wav")
-let gameOver = new soundByte("media/gameover.wav")
-let missedSound = new soundByte("media/nohit.wav")
+let moveSound = new soundByte('media/move.wav')
+let hitSound = new soundByte('media/detecthit.wav')
+let gameOver = new soundByte('media/gameover.wav')
+let missedSound = new soundByte('media/nohit.wav')
 
 let endGame = false
-drawMsg("Press Enter key to start game.",100,180)
+drawMsg('Press Enter key to start game.', 100, 180)
 
 document.addEventListener('keydown', e => {
-  
-  if (e.key == 'Enter') {    
+  if (e.key == 'Enter') {
     // traps pressing enter key after pressing right arrow key
-    if(xMove) {
+    if (xMove) {
       missedSound.play()
-      turn.token = procTokens(turn.token,-1)
+      turn.token = procTokens(turn.token, -1)
     }
     tokenDisplay.innerText = `Tokens :${turn.token}`
     messageDisplay.innerText = `You have ${turn.token} left.`
     reinitialise()
-    stopInterval()     
+    stopInterval()
     if (turn.token != 0) {
       setTimeout(startGame(), 3000)
     } else {
       ctx.clearRect(0, 0, gameArea.width, gameArea.height)
-      drawMsg("Game over! Your score : " + points, 105,180)      
+      drawMsg('Game over! Your score : ' + points, 105, 180)
       gameOver.play()
-      messageDisplay.innerHTML = `Press Enter key to start again.`      
-      if(endGame && turn.token == 0) {
+      messageDisplay.innerHTML = `Press Enter key to start again.`
+      if (endGame && turn.token == 0) {
         location.reload()
-      }    
-      endGame= true
+      }
+      endGame = true
     }
-    
   }
 })
