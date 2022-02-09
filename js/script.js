@@ -186,7 +186,6 @@ function looper () {
   }
 
   // render elements here
-  console.log(hamster.token)
   candyOne.render()
   candyTwo.render()
   hamster.render()
@@ -248,7 +247,6 @@ document.addEventListener('keydown', e => {
     if(xMove) {
       missedSound.play()
       turn.token = procTokens(turn.token,-1)
-
     }
     tokenDisplay.innerText = `Tokens :${turn.token}`
     messageDisplay.innerText = `You have ${turn.token} left.`
