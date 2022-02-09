@@ -61,11 +61,6 @@ The location of the target element(candy) will be coming from a randomizer funct
 
 
 
-## Known bugs
-
-* Hamster can't move along the x axis if down key button was pressed first.
-
-
 ## Stretch
 
 * Add more animations.
