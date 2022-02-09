@@ -55,12 +55,16 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Sound effects added.
 * Score added.
 
+
+
 ![Claw Crane](images/hamster-hunter.jpg)
 
-## Know bugs
+
+
+## Known bugs
 
 * Hamster can't move along the x axis if down key button was pressed first.
-* Pressing the Enter key during mid-play does not deduct points.
+
 
 ## Stretch
 

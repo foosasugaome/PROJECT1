@@ -120,7 +120,7 @@ function movementHandler () {
     hamster.x <= 450 &&
     yMove == false &&
     xMove == false
-  ) {
+  ) {    
     hamster.x += speed
   }
   if (pressedKeys.ArrowRight == false) {
@@ -155,6 +155,7 @@ function detectHit () {
     hitSound.play()
   } else {
     missedSound.play()
+    // turn.token = procTokens(turn.token, -1)
     messageDisplay.innerText = 'Sorry! Try again.'
   }
 }
@@ -176,12 +177,10 @@ function looper () {
   if (xMove && yMove) {
     if (turn.token === 0) {
       stopInterval()
-    } else {      
-      turn.token = procTokens(turn.token, -1)
+    } else {            
       detectHit()
       stopInterval()
-    }
-    tokenDisplay.innerText = `Tokens :${turn.token}`
+    }    
   } else {
     movementHandler()
   }
@@ -244,10 +243,17 @@ drawMsg("Press Enter key to start game.",100,180)
 
 document.addEventListener('keydown', e => {
   
-  if (e.key == 'Enter') {
+  if (e.key == 'Enter') {    
+    // traps pressing enter key after pressing right arrow key
+    if(xMove) {
+      missedSound.play()
+      turn.token = procTokens(turn.token,-1)
+
+    }
+    tokenDisplay.innerText = `Tokens :${turn.token}`
     messageDisplay.innerText = `You have ${turn.token} left.`
     reinitialise()
-    stopInterval()
+    stopInterval()     
     if (turn.token != 0) {
       setTimeout(startGame(), 3000)
     } else {
