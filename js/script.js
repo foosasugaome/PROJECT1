@@ -1,4 +1,4 @@
-console.log('hello from your console.')
+console.log('Project 1. Author : Norman Teodoro')
 
 // define game area
 const gameArea = document.querySelector('#screen')
@@ -13,7 +13,7 @@ imgHamster.src = 'images/hamster.png'
 let imgCandy = new Image()
 imgCandy.src = 'images/candy-sticker.png'
 
-let gameMessage = ""
+let gameMessage = ''
 
 // canvas rendering
 const ctx = gameArea.getContext('2d')
@@ -32,7 +32,7 @@ class gameElement {
     this.x = x
     this.y = y
     this.width = width
-    this.height = height    
+    this.height = height
     this.img = imgSrc
     this.token = Math.floor(Math.random() * 3) + 1
   }
@@ -43,7 +43,7 @@ class gameElement {
     ctx.fillStyle = 'rgb(0,0,0)'
     ctx.fillText(`Tokens :${turn.token}`, 390, 20)
     ctx.fillText(`Candies : ${points}`, 260, 20)
-    ctx.fillText(gameMessage,20,350)
+    ctx.fillText(gameMessage, 20, 350)
   }
 }
 
@@ -81,25 +81,12 @@ hamster.render()
 // x,y limit for target elements
 let x = 420
 let y = 280
-const candyOne = new gameElement(
-  randomise(x),
-  randomise(y),
-  40,
-  40,  
-  imgCandy
-)
-const candyTwo = new gameElement(
-  randomise(x),
-  randomise(y),
-  40,
-  40,  
-  imgCandy
-)
+const candyOne = new gameElement(randomise(x), randomise(y), 40, 40, imgCandy)
+const candyTwo = new gameElement(randomise(x), randomise(y), 40, 40, imgCandy)
 
 // variable to know if player has moved the x/y axis
 let xMove = false
 let yMove = false
-
 
 function movementHandler () {
   // random speed for difficulty
@@ -137,11 +124,11 @@ function detectHit () {
   ) {
     points += 1
     // pointsDisplay.innerText = `Candies collected : ${points}`
-    turn.token = procTokens(turn.token, 1)    
-      gameMessage = 'Good job! You win 1 token.'
+    turn.token = procTokens(turn.token, 1)
+    gameMessage = 'Good job! You win 1 token.'
     hitSound.play()
   } else {
-    missedSound.play()    
+    missedSound.play()
     gameMessage = 'Sorry! Try again.'
   }
 }
