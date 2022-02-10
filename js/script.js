@@ -90,7 +90,7 @@ let yMove = false
 
 function movementHandler () {
   // random speed for difficulty
-  const speed = Math.floor(Math.random() * 50) + 5
+  const speed = Math.floor(Math.random() * 40) + 5
 
   if (pressedKeys.ArrowRight && hamster.x <= 450 && xMove == false) {
     hamster.x += speed
