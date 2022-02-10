@@ -3,9 +3,6 @@ console.log('hello from your console.')
 // define game area
 const gameArea = document.querySelector('#screen')
 
-// const timerDisplay = document.querySelector('#timer')
-const tokenDisplay = document.querySelector('#token')
-const pointsDisplay = document.querySelector('#points')
 const messageDisplay = document.querySelector('#game-message')
 messageDisplay.innerText = 'Hamster, The Candy Hunter'
 
@@ -29,12 +26,11 @@ document.addEventListener('keyup', e => (pressedKeys[e.key] = false))
 
 // class to create position of elements
 class gameElement {
-  constructor (x, y, width, height, color, imgSrc) {
+  constructor (x, y, width, height, imgSrc) {
     this.x = x
     this.y = y
     this.width = width
-    this.height = height
-    this.color = color
+    this.height = height    
     this.img = imgSrc
     this.token = Math.floor(Math.random() * 3) + 1
   }
@@ -63,7 +59,6 @@ let turn = new turnToken(token)
 
 // initial points,display
 let points = 0
-// pointsDisplay.innerText = `Candies collected : ${points}`
 
 // function to compute tokens
 function procTokens (tok, i) {
@@ -79,7 +74,7 @@ function randomise (limit) {
   return number
 }
 
-const hamster = new gameElement(0, 0, 40, 40, '#FFFFFF', imgHamster)
+const hamster = new gameElement(0, 0, 40, 40, imgHamster)
 hamster.render()
 
 // x,y limit for target elements
@@ -89,16 +84,14 @@ const candyOne = new gameElement(
   randomise(x),
   randomise(y),
   40,
-  40,
-  'coral',
+  40,  
   imgCandy
 )
 const candyTwo = new gameElement(
   randomise(x),
   randomise(y),
   40,
-  40,
-  'coral',
+  40,  
   imgCandy
 )
 
@@ -235,8 +228,8 @@ drawMsg('Press Enter key to start game.', 100, 180)
 
 document.addEventListener('keydown', e => {
   if (e.key == 'Enter') {
-    // traps pressing enter key after pressing right arrow key
-    if (xMove) {
+    // traps pressing enter key after pressing right/down arrow key
+    if (xMove || yMove) {
       missedSound.play()
       turn.token = procTokens(turn.token, -1)
     }
