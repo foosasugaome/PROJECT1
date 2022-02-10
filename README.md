@@ -1,4 +1,4 @@
-# Hamster Candy Hunter : An arcade game
+# Hamster,  The Candy Hunter : An arcade game
 
 ## About the game
 
@@ -8,19 +8,18 @@ This is a variation of the claw crane, claw machine, toy crane or skill crane, w
 ## How it is played
 
 * Move the hamster horizontally then vertically to get to the location of candy.
-* Hamster will move when "Arrow right" key is pressed and will stop on release.
+* Hamster will move when "Arrow right" or "Arrow down" key is pressed and will stop on release.
 * Hamster will only move twice, once horizontally and again once vertically (or vice versa).
 * Player can choose which direction they want to go first.
-* You can have n number of turns. Tries will be labeled as tokens.
-* You will have to move the hamster before timer ends.
-* Every time player successfuly grabs a candy, player can earn more turns/tokens.
+* The player will start with 3 turns. Tries will be labeled as tokens.
+* Every time player successfuly grabs a candy, a turn/token is added. Player also gets a point.
 * Game ends when player runs out of turns/tokens.
 
 ## Tech Specs
 
 The game will be created using HTML5 canvas, Javascript. DOM events will handle the user input. User input could be a keyboard press or mouse click on the button. Collision will happen not on the edges of 2 elements (hamster and candy) but on the center point the elements. This is a design choice to increase difficulty of the game. 
 
-Turns/tokens will be handled by a class. End of turn will be triggered when timer runs out. The setinterval function will be used for this.
+Turns/tokens will be handled by a class. End of turn will be triggered when the player releases the right and down key. 
 
 The location of the target element(candy) will be coming from a randomizer function, it will also be assigned a random value which can be added to the players turn/token. 
 
@@ -32,39 +31,20 @@ The location of the target element(candy) will be coming from a randomizer funct
 ## MVP
 
 * Create a canvas as play area.
-* Create a button to start game.
-* Create a timer for each turn.
+* Let player start/restart game by pressing the enter key.
 * Randomly place candy on the canvas.
-* Create event listeners for keypress.
+* Have the player move the hamster using the right and bottom key.
 * Count number of turns/tokens. Add or subtract based on result of last turn.
-* Candy will have random exchange values to be traded for turns/tokens. 
-* Function to subtract tokens after every turn.
 * Function to add tokens if player successfuly grabs a candy.
 
-### Completed
+## Stretch Goals
 
-* Function to move claw along x and y axis complete.
-* Function includes forcing user to move along the x axis first before the y axis.
-* Hamster will stop moving along the x axis when right arrow button is released 
-* Hamster will stop moving along the y axis when down arrow button is released 
-* Candy positions are placed at random location in the play area.
-* Replaced prizes to candy and replaced claw with hamster. Used drawImage on canvas instead of fillRect
-* Function to start and retry after every turn.
-* HTML layout and design.
-* Tokens are computer after every turn.
-* Sound effects added.
-* Score added.
-
+* HTML layout and design
+* Sound effects
 
 
 ![Claw Crane](images/hamster-hunter.jpg)
 
-
-
-## Stretch
-
-* Add more animations.
-* Add sound effects.
 
 ## Changes
 
@@ -74,8 +54,11 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Hamster movement randomized to add difficulty to game.
 * Collision computed at smaller target points for difficulty.
 * Added score for each candy grabbed.
+* Score added.
 
-### Credit goes here
+## Resources
+
+Most of the functionality of the game(movement handler, collision detection, canvas rendering) are based on Weston Bailey's lesson on html5 canvas.
 
 Hamster stickers created by Stickers - Flaticon
 ![Hamster stickers created by Stickers - Flaticon](https://www.flaticon.com/free-stickers/hamster) 
