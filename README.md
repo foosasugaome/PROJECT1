@@ -26,7 +26,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 
 ## Game layout
 
-![Claw Crane](https://i.imgur.com/nf3txe0.jpg)
+![Hamster Hunter](https://i.imgur.com/nf3txe0.jpg)
 
 ## MVP
 
@@ -43,7 +43,7 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Sound effects
 
 
-![Claw Crane](images/hamster-hunter.jpg)
+![Hamster Hunter](images/hamster-hunter-release.jpg)
 
 
 ## Changes
@@ -51,10 +51,11 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Changed name of the game.
 * Used keyboard keys to play the game. 
 * Candy grabbed will only have an exchange value of 1.
-* Hamster movement randomized to add difficulty to game.
-* Collision computed at smaller target points for difficulty.
+* Hamster movement speed randomized to add difficulty to game.
+* Collision computed at smaller collision points for difficulty.
 * Added score for each candy grabbed.
 * Score added.
+* Timer removed.
 
 ## Resources
 

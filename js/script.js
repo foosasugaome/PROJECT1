@@ -7,7 +7,7 @@ const gameArea = document.querySelector('#screen')
 const tokenDisplay = document.querySelector('#token')
 const pointsDisplay = document.querySelector('#points')
 const messageDisplay = document.querySelector('#game-message')
-messageDisplay.innerText = 'Help hamster get candies.'
+messageDisplay.innerText = 'Hamster, The Candy Hunter'
 
 // y limit 360 - height of element
 //render hamster -- this will always be the position of the hamster
@@ -41,8 +41,12 @@ class gameElement {
   render () {
     // use image to draw on canvas
     ctx.drawImage(this.img, this.x, this.y)
-    // ctx.fillStyle = this.color
-    // ctx.fillRect(this.x, this.y, this.width, this.width)
+    ctx.font = 'bold 20px "IBM Plex Sans Thai Looped"'
+    ctx.fillStyle = 'rgb(0,0,0)'
+    ctx.fillText(`Tokens :${turn.token}`, 390, 20)
+    ctx.font = 'bold 20px "IBM Plex Sans Thai Looped"'
+    ctx.fillStyle = 'rgb(0,0,0)'
+    ctx.fillText(`Candies : ${points}`, 260, 20)    
   }
 }
 
@@ -59,7 +63,7 @@ let turn = new turnToken(token)
 
 // initial points,display
 let points = 0
-pointsDisplay.innerText = `Candies collected : ${points}`
+// pointsDisplay.innerText = `Candies collected : ${points}`
 
 // function to compute tokens
 function procTokens (tok, i) {
@@ -101,7 +105,7 @@ const candyTwo = new gameElement(
 // variable to know if player has moved the x/y axis
 let xMove = false
 let yMove = false
-tokenDisplay.innerText = `Tokens :${turn.token}`
+// tokenDisplay.innerText = `Tokens :${turn.token}`
 
 function movementHandler () {
   // random speed for difficulty
@@ -139,10 +143,10 @@ function detectHit () {
       hamster.y - 20 <= candyTwo.y + candyTwo.height - 30)
   ) {
     points += 1
-    pointsDisplay.innerText = `Candies collected : ${points}`
+    // pointsDisplay.innerText = `Candies collected : ${points}`
     turn.token = procTokens(turn.token, 1)
     messageDisplay.innerText =
-      'Good job! Hamster caught a candy! You win 1 token.'
+      'Good job! You win 1 token.'
     hitSound.play()
   } else {
     missedSound.play()
@@ -236,8 +240,7 @@ document.addEventListener('keydown', e => {
       missedSound.play()
       turn.token = procTokens(turn.token, -1)
     }
-    tokenDisplay.innerText = `Tokens :${turn.token}`
-    messageDisplay.innerText = `You have ${turn.token} left.`
+    messageDisplay.innerText = `Let's go hunting!`
     reinitialise()
     stopInterval()
     if (turn.token != 0) {

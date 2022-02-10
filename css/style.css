@@ -1,98 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;700&family=Press+Start+2P&display=swap');
 :root {
-    --primary-color: khaki;
-    --secondary-color: coral;
-    --tertiary-color: rgb(240, 216, 188);
-    --primary-font: 'IBM Plex Sans Thai Looped', sans-serif;
-    
+  --primary-color: khaki;
+  --secondary-color: coral;
+  --tertiary-color: rgb(240, 216, 188);
+  --primary-font: 'Press Start 2P', cursive;
+  --secondary-font: 'IBM Plex Sans Thai Looped', sans-serif;
 }
 
 body {
-font-family: var(--primary-font);
-background-color: var(--primary-color);
+  font-family: var(--primary-font);
+  /* background-color: var(--primary-color); */
+  background-color: blanchedalmond;
+  text-align: center;
 }
 
 .center {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
 .header {
-    width: 600px;
-    height: 300px;
-    background-image: url('images/speech-bubble-gba84e7a17_1920.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-size: 100% 100%;
-    border: .1rem solid black;
-    margin: 10px 10px 10px 10px;
-    
+  width: 800px;
+  height: 300px;
+  background-image: url('images/speech-bubble-gba84e7a17_1920.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+  border: 0.1rem solid black;
+  margin: 10px 10px 10px 10px;
 }
 .container {
-    border: .1rem solid black;
-    margin: 10px 10px 10px 10px;  
-    border-radius: 10px;  
-    width: 600px;      
+    width: 620px;
+    height: 800px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--primary-color);
+    box-shadow: 0px -5px 0px #e9de6c, 0px 5px 0px #3b3919;
+    font-family: var(--primary-font);
 }
 .game-window {
-    border: .1rem solid black;
-    margin: 10px 10px 10px 10px;
-    width: 500px;
-    height: 360px;
-    border-radius: 5px;
-    background-color: var(--tertiary-color);
-    
+  border: 0.1rem solid black;
+  margin: 10px 10px 10px 10px;
+  width: 500px;
+  height: 360px;
+  border-radius: 5px;
+  background-color: var(--tertiary-color);
 }
-.game-console {
-    border: .1rem solid black;
-    margin: 10px 10px 10px 10px;
-    width: 500px;
-    height: 360px;
-    border-radius: 5px;
-    background-color: var(--tertiary-color);
 
-}
 .console-container {
-    border: .1rem solid black;
-    margin: 10px 10px 10px 10px;  
-    border-radius: 10px;  
-    width: 600px;    
-    text-align: left;
-    padding: 10px 10px 10px 10px
+  margin: 5px 10px 10px 10px;
+  border-radius: 10px;
+  width: 600px;
+  text-align: left;
+  padding: 5px 10px 5px 10px;
+  font-family: var(--secondary-font);
 }
-.round-div {
-    height: 80px;
-    width: 80px;
-    background-color: var(--secondary-color);
-    border-radius: 50%;
-    display: inline-block;
-    margin: 10px 0px 10px 5px;
-    border: .1rem solid var(--tertiary-color);
-  }
-  .info-display {
-    /* height: 60px; */
-    padding: 10px 10px 10px 10px;
-    display: inline-block;
-    text-align: center;
-    margin: 10px 0px 10px 5px;    
-  }
-  .message-display {
-    /* height: 60px; */
-    padding: 10px 10px 10px 10px;
-    width: 100%;    
-    display: inline-block;
-    text-align: center;
-    margin: 10px 0px 10px 5px;    
-    font-size: 400;
-    font-weight: 600;
-  }
-  .button-style {
-      border: .1rem solid rgb(0,0,0);
-      background-color: lightgray;
-      padding: 3px 10px 3px 10px;
-      border-radius: 10%;
-  }
+
+
+.info-display {  
+  padding: 10px 10px 5px 10px;
+  display: inline-block;
+  text-align: center;
+  margin: 10px 0px 10px 5px;
+  font-family: var(--primary-font);
+  font-size: 12px;
+}
+
+.button-style {
+  border: 0.1rem solid rgb(0, 0, 0);
+  background-color: lightgray;
+  padding: 3px 10px 3px 10px;
+  border-radius: 10%;
+  font-size: 13px;
+  font-family: var(--secondary-font);
+}
+.screen {
+  position: relative;
+  padding: 35px 50px 5px 50px;
+  border-radius: 15px;
+  background-color: #23252d;
+  color: #eff3f5;  
+}
+.message-box {
+  padding: 5px 20px 20px 20px;
+  width: 80%;
+  color: #f5f5fa;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 11px;
+  margin-top: 30px;
+  font-size: small;
+  font-family: var(--primary-font);
+}

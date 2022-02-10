@@ -7,67 +7,53 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Hamster Candy Hunt</title>
   </head>
-  <body>
-    <div class="center">
-      <small id="debug"></small>
-    </div>
-    <div class="center">
-      <h1>Hamster, The Candy Hunter</h1>
-    </div>
-
+  <body>   
     <section class="center">
-      <div class="container center">
+    <div class="container">
+      <div class="screen">
         <canvas class="game-window center" id="screen">
           <!-- game area -->
-        </canvas>
-      </div>
-    </section>
-    <section class="center">
-      <div class="console-container">
-        <div class="message-display" id="game-message"></div>
-      </div>
-    </section>
-    <section class="center">
-      <div class="console-container">
-        <div class="info-display">
-          <small class="button-style">&#8594;</small> : Go right
+        </canvas>        
+        <div>
+          <div class="message-box" id="game-message">Hamster, The Candy Hunter</div>
+        </div>          
         </div>
-        <div class="info-display">
-          <small class="button-style">&#8595;</small> : Go down
+          <!-- start controls area -->
+          <div class="info-display">
+            <small class="button-style">&#8594;</small> : Go right
+          </div>
+          <div class="info-display">
+            <small class="button-style">&#8595;</small> : Go down
+          </div>
+          <div class="info-display">
+            <small class="button-style">ENTER</small> : Restart
+          </div>
+          <!-- end controls area -->  
+          <div class="console-container">
+            How to play :
+            <ol>
+              <li>Game starts with 3 tokens.</li>
+              <li>There are only 2 moves, right and down.</li>
+              <li>Press <small class="button-style">&#8594;</small> of the keyboard to go right. Press
+                <small class="button-style">&#8595;</small>  to go down.
+              </li>
+              <li>
+                Hold the key to move and release to
+                stop.
+              </li>
+              <li>
+                Landing on a candy grants extra turn. 
+              </li>
+              <li>
+                1 turn is worth 1 token.
+              </li>
+              <li>Game ends when tokens reach 0.</li>
+            </ol>
+          </div>
         </div>
-        <div class="info-display">
-          <small class="button-style">ENTER</small> : Restart
-        </div>
-        <div class="info-display" id="token"></div>
-        <div class="info-display" id="points"></div>
-      </div>
-    </section>
-    <section class="center">
-      <div class="console-container">
-        <h4>Instructions :</h4>
-        <ol>
-          <li>You start with 3 tokens.</li>
-          <li>You only have 2 moves.</li>
-          <li>
-            Press the Right arrow key to go right and Down arrow key to go
-            down.
-          </li>
-          <li>
-            You have to hold the key and release where you want the hamster to
-            stop.
-          </li>
-          <li>
-            If the hamster lands on a candy you gain a token. You can win as many
-            tokens.
-          </li>
-          <li>
-            A token is deducted if the hamster does not land on a candy.
-          </li>
-          <li>Game ends when tokens reach 0.</li>
-        </ol>
-      </div>
-    </section>
-    <section class="center">
+    </div>
+  </section> 
+  <section class="center">
       <div class="console-container">
         <h4>Credits :</h4>
         <a href="https://www.flaticon.com/free-stickers/hamster" target="_blank">Hamster stickers created by Stickers - Flaticon</a><br />
