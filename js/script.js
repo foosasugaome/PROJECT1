@@ -13,6 +13,8 @@ imgHamster.src = 'images/hamster.png'
 let imgCandy = new Image()
 imgCandy.src = 'images/candy-sticker.png'
 
+let gameMessage = ""
+
 // canvas rendering
 const ctx = gameArea.getContext('2d')
 
@@ -40,9 +42,8 @@ class gameElement {
     ctx.font = 'bold 20px "IBM Plex Sans Thai Looped"'
     ctx.fillStyle = 'rgb(0,0,0)'
     ctx.fillText(`Tokens :${turn.token}`, 390, 20)
-    ctx.font = 'bold 20px "IBM Plex Sans Thai Looped"'
-    ctx.fillStyle = 'rgb(0,0,0)'
-    ctx.fillText(`Candies : ${points}`, 260, 20)    
+    ctx.fillText(`Candies : ${points}`, 260, 20)
+    ctx.fillText(gameMessage,20,350)
   }
 }
 
@@ -98,12 +99,11 @@ const candyTwo = new gameElement(
 // variable to know if player has moved the x/y axis
 let xMove = false
 let yMove = false
-// tokenDisplay.innerText = `Tokens :${turn.token}`
+
 
 function movementHandler () {
   // random speed for difficulty
   let speed = Math.floor(Math.random() * 50) + 5
-  
 
   if (pressedKeys.ArrowRight && hamster.x <= 450 && xMove == false) {
     hamster.x += speed
@@ -116,11 +116,9 @@ function movementHandler () {
   }
 
   if (pressedKeys.ArrowRight == false) {
-    // toggle condition for the hamster to stop traversing the x axis
     xMove = true
   }
   if (pressedKeys.ArrowDown == false) {
-    // toggle condition for the hamster to stop traversing the y axis
     yMove = true
   }
 }
@@ -139,13 +137,12 @@ function detectHit () {
   ) {
     points += 1
     // pointsDisplay.innerText = `Candies collected : ${points}`
-    turn.token = procTokens(turn.token, 1)
-    messageDisplay.innerText =
-      'Good job! You win 1 token.'
+    turn.token = procTokens(turn.token, 1)    
+      gameMessage = 'Good job! You win 1 token.'
     hitSound.play()
   } else {
-    missedSound.play()
-    messageDisplay.innerText = 'Sorry! Try again.'
+    missedSound.play()    
+    gameMessage = 'Sorry! Try again.'
   }
 }
 
@@ -235,7 +232,7 @@ document.addEventListener('keydown', e => {
       missedSound.play()
       turn.token = procTokens(turn.token, -1)
     }
-    messageDisplay.innerText = `Let's go hunting!`
+    gameMessage = ``
     reinitialise()
     stopInterval()
     if (turn.token != 0) {
@@ -244,7 +241,6 @@ document.addEventListener('keydown', e => {
       ctx.clearRect(0, 0, gameArea.width, gameArea.height)
       drawMsg('Game over! Your score : ' + points, 105, 180)
       gameOver.play()
-      messageDisplay.innerHTML = `Press Enter key to start again.`
       if (endGame && turn.token == 0) {
         location.reload()
       }
