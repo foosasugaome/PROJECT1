@@ -89,7 +89,6 @@ let xMove = false
 let yMove = false
 
 function movementHandler (speed) {
-  
   if (pressedKeys.ArrowRight && hamster.x <= 420 && xMove == false) {
     hamster.x += speed
     moveSound.play()
@@ -211,8 +210,8 @@ let endGame = false
 drawMsg('Press Enter key to start game.', 100, 180)
 
 document.addEventListener('keydown', e => {
-  if (e.key == 'Enter') {    
-    gameSpeed = Math.floor(Math.random() * 45) + 5
+  if (e.key == 'Enter') {
+    gameSpeed = Math.floor(Math.random() * 40) + 10
     // traps pressing enter key after pressing right/down arrow key
     if (xMove || yMove) {
       missedSound.play()
