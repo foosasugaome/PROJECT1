@@ -65,4 +65,4 @@ The location of the target element(candy) will be coming from a randomizer funct
 
 ## Link to game
 
-[Hamster Candy Hunt](#https://foosasugaome.github.io/candy_hunt/)
+https://foosasugaome.github.io/candy_hunt/
