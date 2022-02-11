@@ -14,7 +14,7 @@ let imgCandy = new Image()
 imgCandy.src = 'images/candy-sticker.png'
 
 let gameMessage = ''
-
+let gameSpeed = 10
 // canvas rendering
 const ctx = gameArea.getContext('2d')
 
@@ -88,16 +88,14 @@ const candyTwo = new gameElement(randomise(x), randomise(y), 40, 40, imgCandy)
 let xMove = false
 let yMove = false
 
-function movementHandler () {
-  // random speed for difficulty
-  const speed = Math.floor(Math.random() * 40) + 5
-
-  if (pressedKeys.ArrowRight && hamster.x <= 450 && xMove == false) {
+function movementHandler (speed) {
+  
+  if (pressedKeys.ArrowRight && hamster.x <= 420 && xMove == false) {
     hamster.x += speed
     moveSound.play()
   }
 
-  if (pressedKeys.ArrowDown && yMove == false && hamster.y <= 300) {
+  if (pressedKeys.ArrowDown && yMove == false && hamster.y <= 280) {
     hamster.y += speed
     moveSound.play()
   }
@@ -155,7 +153,7 @@ function looper () {
       stopInterval()
     }
   } else {
-    movementHandler()
+    movementHandler(gameSpeed)
   }
 
   // render elements here
@@ -213,7 +211,8 @@ let endGame = false
 drawMsg('Press Enter key to start game.', 100, 180)
 
 document.addEventListener('keydown', e => {
-  if (e.key == 'Enter') {
+  if (e.key == 'Enter') {    
+    gameSpeed = Math.floor(Math.random() * 45) + 5
     // traps pressing enter key after pressing right/down arrow key
     if (xMove || yMove) {
       missedSound.play()
