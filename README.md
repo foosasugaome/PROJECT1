@@ -57,12 +57,13 @@ The location of the target element(candy) will be coming from a randomizer funct
 * Score added.
 * Timer removed.
 
+## Link to game
+
+https://foosasugaome.github.io/candy_hunt/
+
 ## Resources
 
 * Most of the functionality of the game(movement handler, collision detection, canvas rendering) are based on Weston Bailey's lesson on html5 canvas.
 * [Hamster stickers created by Stickers - Flaticon](#https://www.flaticon.com/free-stickers/hamster) 
 * [Chocolate stickers created by Gohsantosadrive - Flaticon](#https://www.flaticon.com/free-icons/chocolate)
 
-## Link to game
-
-https://foosasugaome.github.io/candy_hunt/
